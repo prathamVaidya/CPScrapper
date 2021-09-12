@@ -1,0 +1,18 @@
+{
+  "name": "webscraper",
+  "version": "1.0.0",
+  "description": "It contains the boilerplate code to create a webscraper in node js. You can import it in your package as a module.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webscraper"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "cheerio": "^1.0.0-rc.10"
+  }
+}
