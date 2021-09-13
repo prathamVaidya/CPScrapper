@@ -5,6 +5,7 @@ const FUTURE_CONTEST_API_URL = "https://codeforces.com/contests";
 
 const UPCOMING_CONTEST = 1
 const PAST_CONTEST = 2
+var URL = "https://codeforces.com"
 
 function code_webScraper($,webscraper){
     var status = webscraper.status;
@@ -23,7 +24,7 @@ for(let i=1;i<data.length;i++)
   {
     var upcoming_contests = data[i];
     var column = $(upcoming_contests).find('td');
-    var contest_name = $(column[0]).text().replace(/\n/g,"").trim();  // Using .replace() and .trim() to filter the string
+    var contest_name = $(column[0]).text().replace(/\n/g,"").replace(/Enter »/,"").replace(/Virtual participation »/,"").trim();  // Using .replace() and .trim() to filter the string
 
     var writers = $(column[1]).text().replace(/\n/g,"").replace(/   /g,"").trim();
 
