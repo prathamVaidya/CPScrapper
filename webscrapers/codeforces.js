@@ -5,7 +5,6 @@ const FUTURE_CONTEST_API_URL = "https://codeforces.com/contests";
 
 const UPCOMING_CONTEST = 1
 const PAST_CONTEST = 2
-var URL = "https://codeforces.com"
 
 function code_webScraper($,webscraper){
     var status = webscraper.status;
@@ -23,15 +22,15 @@ function code_webScraper($,webscraper){
 for(let i=1;i<data.length;i++)
   {
     var upcoming_contests = data[i];
-    var column = $(upcoming_contests).find('td');
-    var contest_name = $(column[0]).text().replace(/\n/g,"").replace(/Enter »/,"").replace(/Virtual participation »/,"").trim();  // Using .replace() and .trim() to filter the string
+  var column = $(upcoming_contests).find('td');
+  
+    var contest_name = $(column[0]).children().remove().end().text().replace(/\n/g,"").trim();  // Using .replace() and .trim() to filter the string
 
     var writers = $(column[1]).text().replace(/\n/g,"").replace(/   /g,"").trim();
-
-    var event_time = $(column[2]).text().replace(/\n/g,"").trim();
-    filtered_time = event_time.slice(0, event_time.length - 7);  // Removed "UTC5.5" string from even_time
-     var date = new Date(filtered_time);
-    var iso_time = date.toISOString();  // converted UTC time to ISO time format
+     
+    var event_time = $(column[2]).find("[class^='format-time']").text(); 
+    var unix_time = new Date(event_time).getTime() / 1000; // converted UTC time to unix timestamp
+  
 
      var duration = $(column[3]).text().replace(/\n/g,"").trim();
 
@@ -43,7 +42,7 @@ for(let i=1;i<data.length;i++)
     var table = {}
     table.name = contest_name;
     table.writers = writers;
-    table.event_time = iso_time;
+    table.event_time = unix_time;
     table.duration = duration;
     table.participants = participants;
     table.register_link = register_link;
