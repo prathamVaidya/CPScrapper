@@ -1,11 +1,13 @@
-// var codechef = require("./codechef")
+var codechef = require("./codechef");
+var codeforces = require("./codeforces");
 
-// codechef.futureContests(function (data) {
+/* Get Upcoming Contests of codechef */
+
+// codechef.upcomingContests(function (data) {
 //     console.log(data);
 // })
 
-var codeforces = require("./codeforces")
-
+/* Get Upcoming Contests of codeforce */
 codeforces.upComingContest(function (data) {
-    console.log(data);
-})
+  console.log(data);
+});
