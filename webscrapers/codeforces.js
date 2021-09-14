@@ -24,7 +24,7 @@ for(let i=1;i<data.length;i++)
     var upcoming_contests = data[i];
   var column = $(upcoming_contests).find('td');
   
-    var contest_name = $(column[0]).clone().children().remove().end().text().replace(/\n/g,"").trim();  // Using .replace() and .trim() to filter the string
+    var contest_name = $(column[0]).children().remove().end().text().replace(/\n/g,"").trim();  // Using .replace() and .trim() to filter the string
 
     var writers = $(column[1]).text().replace(/\n/g,"").replace(/   /g,"").trim();
      
