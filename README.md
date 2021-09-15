@@ -1,2 +1,2 @@
 # CPScrapper
-CPscraper
+Competitive Programmer Scrapper
