@@ -1,0 +1,18 @@
+{
+  "name": "cps-server",
+  "version": "1.0.0",
+  "description": "Backend Server for all scraper logic and serving API's ",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "sequelize": "^6.6.5"
+  }
+}
