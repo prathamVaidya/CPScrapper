@@ -1,2 +1,2 @@
 # CPScrapper
-Competitive Programmer Scrapper
+Competitive Programming Websites Scrapper
