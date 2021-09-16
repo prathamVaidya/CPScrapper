@@ -17,14 +17,14 @@ function future_contest_scraper($, page) {
 
   page.html.forEach((element) => {
     var link = "topcoder.com/challenges";
-    // var stime = new Date(element.contest_start_date_iso).getTime() / 1000;
-    // var etime = new Date(element.contest_end_date_iso).getTime() / 1000;
+    var stime = new Date(element.start_time).getTime() / 1000;
+    var etime = new Date(element.end_time).getTime() / 1000;
 
     var contest = {};
     //contest.code = element.name;
     contest.name = element.name;
-    contest.start_time = element.start_time;
-    contest.end_time = element.end_time;
+    contest.start_time = stime;
+    contest.end_time = etime;
     contest.action_link = link;
 
     page.data.futureContests.push(contest);
