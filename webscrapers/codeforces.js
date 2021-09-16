@@ -68,12 +68,12 @@ function code_webScraper($, webscraper) {
     var table = {};
     table.name = contest_name;
     table.writers = writers;
-    table.event_time = unix_time;
+    table.start_time = unix_time;
     table.end_time = end_time;
-    table.participants = participants;
+    table.total_participants = participants;
 
     if (status == UPCOMING_CONTEST) {
-      table.register_link = register_link;
+      table.action_link = register_link;
     } else {
       table.standings_link = standings_link;
     }
