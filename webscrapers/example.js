@@ -9,10 +9,10 @@ var topcoder = require("./topcoder");
  }) 
 
 /* Get Upcoming Contests of Codeforce */
-codeforces.upComingContest(function (data) {
+codeforces.upcomingContest(function (data) {
   console.log(data);
 }); 
-
+/* Get Upcoming Contests of Atcoder */
 atcoder.upComingContest(function (data) {
   console.log(data);
 });
@@ -24,7 +24,7 @@ atcoder.preComingContest(function (data) {
 atcoder.pastContest(function (data) {
   console.log(data);
 }); 
-
+/* Get Upcoming Contests of Topcpder */
  topcoder.futureContests(function (data) {
      console.log(data);
  }) 
