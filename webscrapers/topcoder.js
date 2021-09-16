@@ -16,7 +16,7 @@ function future_contest_scraper($, page) {
   page.data.futureContests = [];
 
   page.html.forEach((element) => {
-    var link = "topcoder.com/challenges";
+    var link = "https://topcoder.com/challenges";
     var stime = new Date(element.start_time).getTime() / 1000;
     var etime = new Date(element.end_time).getTime() / 1000;
 
