@@ -1,6 +1,5 @@
 "use strict";
-var Webscraper = require("./webscraper")
-
+var Webscraper = require("./webscraper");
 
 // Define Constants Here
 const FUTURE_CONTEST_API_URL = "https://kontests.net/api/v1/top_coder";
@@ -16,7 +15,7 @@ function future_contest_scraper($, page) {
   page.data.futureContests = [];
 
   page.html.forEach((element) => {
-    var link = "https://topcoder.com/challenges";
+    var link = element.url;
     var stime = new Date(element.start_time).getTime() / 1000;
     var etime = new Date(element.end_time).getTime() / 1000;
 
@@ -34,17 +33,15 @@ function future_contest_scraper($, page) {
   //console.log(present_contest_data);
 }
 /* Final Functions Available from this modules */
-exports.futureContests = (callback) => {
-
-    // initiate a webscraper instance
-var contestPageScraper = new Webscraper(FUTURE_CONTEST_API_URL);
-
+exports.upcomingContests = (callback) => {
+  // initiate a webscraper instance
+  var contestPageScraper = new Webscraper(FUTURE_CONTEST_API_URL);
 
   if (contestPageScraper.data.futureContests != null) {
     //console.log("Showing Cached Output: ");
     callback(contestPageScraper.data.futureContests);
   } else {
-   // console.log("Fetching and scraping: ");
+    // console.log("Fetching and scraping: ");
     contestPageScraper.fetch(callback, future_contest_scraper);
   }
 };

@@ -92,7 +92,7 @@ function code_webScraper($, webscraper) {
 // initiate a webscraper instance
 var contestPageScraper = new Webscraper(FUTURE_CONTEST_API_URL);
 
-exports.upcomingContest = (callback) => {
+exports.upcomingContests = (callback) => {
   contestPageScraper.status = 1;
 
   if (contestPageScraper.data.upComingContest != null) {
@@ -104,7 +104,7 @@ exports.upcomingContest = (callback) => {
   }
 };
 
-exports.pastContest = (callback) => {
+exports.pastContests = (callback) => {
   contestPageScraper.status = 2;
 
   if (contestPageScraper.data.pastContest != null) {
