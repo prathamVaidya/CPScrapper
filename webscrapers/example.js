@@ -3,7 +3,7 @@ var codeforces = require("./codeforces");
 var atcoder = require("./atcoder");
 var topcoder = require("./topcoder");
 
-/* Get Upcoming Contests of Codechef */
+// /* Get Upcoming Contests of Codechef */
 codechef.upcomingContests(function (data) {
   console.log(data);
 });
@@ -17,7 +17,7 @@ atcoder.upcomingContests(function (data) {
   console.log(data);
 });
 
-/* Get Upcoming Contests of Topcpder */
+// /* Get Upcoming Contests of Topcpder */
 topcoder.upcomingContests(function (data) {
   console.log(data);
 });
