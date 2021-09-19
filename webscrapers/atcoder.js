@@ -60,11 +60,11 @@ function code_webScraper($, webscraper) {
 
     var table = {};
     table.name = contest_name;
-    table.start_time = start_time;
-    table.end_time = end_time;
-    table.action_link = link;
-    table.min_rating = min_rating;
-    table.max_rating = max_rating;
+    table.starttime = start_time;
+    table.endtime = end_time;
+    table.actionlink = link;
+    table.minrating = min_rating;
+    table.maxrating = max_rating;
 
     tablelist.push(table);
   }
