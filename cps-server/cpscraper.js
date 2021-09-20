@@ -1,4 +1,6 @@
-var codechef = require("./webscrapers/codechef");
+
+module.exports.run = function (){
+  var codechef = require("./webscrapers/codechef");
 var codeforces = require("./webscrapers/codeforces");
 var atcoder = require("./webscrapers/atcoder");
 var topcoder = require("./webscrapers/topcoder");
@@ -10,24 +12,113 @@ mongoose
   .then((result) => {
     console.log("Connected to Mongo");
 
-    // to create a new contest
-    var contest = new Contest({
-      name: "Temp Contest 2",
-      startTime: 1631966700,
-      endTime: 1631973900,
-      actionLink: "https://www.topcoder.com/challenges",
-    });
+/* Get Upcoming Contests of Codechef */
+codechef.upcomingContests(function (upcomingContestsList) {
+    console.log("Storing Results from Codechef")
+  upcomingContestsList.forEach((singleContest) => {
+     // to create a new contest if doesnt exist already
 
-    contest
-      .save()
-      .then((result) => console.log("Record Created"))
-      .catch((error) => console.log("Handle this error here"));
+     var contest = {
+      name: singleContest.name,
+      startTime:  singleContest.start_time,
+      endTime:  singleContest.end_time,
+      actionLink:  singleContest.action_link,
+      source: "Codechef"
+    };
+    
+    findOrCreateContest(contest)
+    
+
+
+  })
+  
+});
+
+codeforces.upcomingContests(function (upcomingContestsList) {
+  console.log("Storing Results from Codeforces")
+  upcomingContestsList.forEach((singleContest) => {
+     // to create a new contest if doesnt exist already
+
+     var contest = {
+      name: singleContest.name,
+      startTime:  singleContest.start_time,
+      endTime:  singleContest.end_time,
+      actionLink:  singleContest.action_link,
+      source: "Codeforces"
+    };
+    
+    findOrCreateContest(contest)
+    
+
+
+  })
+  
+});
+
+atcoder.upcomingContests(function (upcomingContestsList) {
+  console.log("Storing Results from atcoder")
+  upcomingContestsList.forEach((singleContest) => {
+     // to create a new contest if doesnt exist already
+
+     var contest = {
+      name: singleContest.name,
+      startTime:  singleContest.start_time,
+      endTime:  singleContest.end_time,
+      actionLink:  singleContest.action_link,
+      source: "Atcoder"
+    };
+    
+    findOrCreateContest(contest)
+    
+
+
+  })
+  
+});
+
+topcoder.upcomingContests(function (upcomingContestsList) {
+  console.log("Storing Results from topcoder")
+  upcomingContestsList.forEach((singleContest) => {
+     // to create a new contest if doesnt exist already
+
+     var contest = {
+      name: singleContest.name,
+      startTime:  singleContest.start_time,
+      endTime:  singleContest.end_time,
+      actionLink:  singleContest.action_link,
+      source: "Topcoder"
+    };
+    
+    findOrCreateContest(contest)
+    
+
+
+  })
+  
+});
+
+
+
   })
   .catch((err) => {
     console.log(err);
   });
 
-/* Get Upcoming Contests of Codechef */
-// codechef.upcomingContests(function (data) {
-//   console.log(data);
-// });
+
+  function findOrCreateContest(contest){
+    Contest.findOne(contest,function (err, data) {
+      if (err){
+          console.log(err)
+      } 
+      else{
+          console.log("Result : ", data);
+          if(data == null){
+             new Contest(contest)
+             .save()
+             .then((result) => console.log("Record Created"))
+             .catch((error) => console.log("Handle this error here: "+error));
+          }
+      }
+  })
+  }
+}
