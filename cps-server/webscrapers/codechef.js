@@ -22,8 +22,8 @@ function future_contest_scraper($, page) {
 
   page.html.future_contests.forEach((element) => {
     var link = CONTEST_PAGE_LINK.replace("%CONTEST%", element.contest_code);
-    var stime = new Date(element.contest_start_date_iso).getTime() / 1000;
-    var etime = new Date(element.contest_end_date_iso).getTime() / 1000;
+    var stime = new Date(element.contest_start_date_iso).toUTCString();
+    var etime = new Date(element.contest_end_date_iso).toUTCString();
 
     var contest = {};
     contest.code = element.contest_code;
