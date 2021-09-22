@@ -22,9 +22,9 @@ function future_contest_scraper($, page) {
     var contest = {};
     //contest.code = element.name;
     contest.name = element.name;
-    contest.start_time = stime;
-    contest.end_time = etime;
-    contest.action_link = link;
+    contest.startTime = stime;
+    contest.endTime = etime;
+    contest.actionLink = link;
 
     page.data.futureContests.push(contest);
   });
