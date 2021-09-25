@@ -4,7 +4,8 @@
   "description": "Backend Server for all scraper logic and serving API's ",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",

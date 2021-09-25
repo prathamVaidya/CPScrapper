@@ -7,8 +7,11 @@ var topcoder = require("./webscrapers/topcoder");
 
 var mongoose = require("mongoose");
 var Contest = require("./models/contest");
+
+const config = require("./config/config")
+
 mongoose
-  .connect("mongodb://cpserveruser:passwordhere@localhost:27017/cpserver")
+  .connect(config.MONGODB_CONN_STRING)
   .then((result) => {
     console.log("Connected to Mongo");
 
