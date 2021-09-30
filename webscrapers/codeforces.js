@@ -89,14 +89,14 @@ function code_webScraper($, webscraper) {
     var table = {};
     table.name = contest_name;
     table.writers = writers;
-    table.start_time = start_time;
-    table.end_time = end_time;
-    table.total_participants = count;
+    table.startTime = start_time;
+    table.endTime = end_time;
+    table.totalParticipants = count;
 
     if (status == UPCOMING_CONTEST) {
-      table.action_link = register;
+      table.actionLink = register;
     } else {
-      table.standings_link = standings;
+      table.standingsLink = standings;
     }
     tablelist.push(table); // Stored all data in the tablelist[]
   }
